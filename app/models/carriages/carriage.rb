@@ -1,18 +1,20 @@
 class Carriage < ApplicationRecord
-  KINDS = {
-    economy: 0,
-    coupe: 1
+  TYPES = {
+    economy: 'EconomyCarriage',
+    coupe: 'CoupeCarriage',
+    sitting: 'SittingCarriage',
+    business: 'BusinessCarriage'
   }.freeze
 
   belongs_to :train
 
-  validates :kind, inclusion: { in: KINDS.values,
-    message: "is not included in the list: #{KINDS.keys.join(', ')}" }
-  validates :upper_seats, numericality: { only_integer: true }
-  validates :lower_seats, numericality: { only_integer: true }
+  validates :type, inclusion: { in: TYPES.values,
+    message: "is not included in the list: #{TYPES.keys.join(', ')}" }
 
-  scope :coupe,   -> { where(kind: KINDS[:coupe]) }
-  scope :economy, -> { where(kind: KINDS[:economy]) }
+  scope :coupe,    -> { where(type: 'CoupeCarriage') }
+  scope :economy,  -> { where(type: 'EconomyCarriage') }
+  scope :sitting,  -> { where(type: 'SittingCarriage') }
+  scope :business, -> { where(type: 'BusinessCarriage') }
   scope :sum_upper_seats, -> { sum(:upper_seats) }
   scope :sum_lower_seats, -> { sum(:lower_seats) }
 end
