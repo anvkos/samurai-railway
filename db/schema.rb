@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215131341) do
+ActiveRecord::Schema.define(version: 20161218095025) do
 
   create_table "carriages", force: :cascade do |t|
     t.string   "type"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20161215131341) do
     t.integer  "train_id"
     t.integer  "start_station_id"
     t.integer  "end_station_id"
+    t.string   "passenger_name"
+    t.string   "passenger_passport"
     t.index ["end_station_id"], name: "index_tickets_on_end_station_id"
     t.index ["start_station_id"], name: "index_tickets_on_start_station_id"
     t.index ["train_id"], name: "index_tickets_on_train_id"
