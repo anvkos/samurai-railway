@@ -22,7 +22,7 @@ class RailwayStation < ApplicationRecord
   end
 
   def time(route, time_type)
-    route_station(route).try(time_type) #.try(:strftime, "%H:%M")
+    route_station(route).try(time_type)
   end
 
   private
