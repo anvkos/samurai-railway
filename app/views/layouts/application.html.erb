@@ -10,6 +10,17 @@
 
   <body>
     <div class="container">
+      <% if user_signed_in? %>
+        <p>User: <%= current_user.email %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        </p>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path %>
+      <% end %>
+
+      <p id="notice" class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>
