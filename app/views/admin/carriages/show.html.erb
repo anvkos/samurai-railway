@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Type:</strong>
   <%= @carriage.type %>
@@ -12,5 +10,5 @@
   <%= @carriage.train.number %>
 </p>
 
-<%= link_to 'Edit', edit_carriage_path(@carriage) %> |
-<%= link_to 'Back', @carriage.train %>
+<%= link_to 'Edit', edit_admin_carriage_path(@carriage) %> |
+<%= link_to 'Back', [:admin, @carriage.train] %>

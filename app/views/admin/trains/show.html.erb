@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Number:</strong>
   <%= @train.number %>
@@ -31,8 +29,8 @@
       <%= render 'carriages', carriages: @train.carriages %>
     <% end %>
     <br>
-  <%= link_to 'Add carriage', new_train_carriage_path(@train) %>
+  <%= link_to 'Add carriage', new_admin_train_carriage_path(@train) %>
 </p>
 
-<%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to 'Back', admin_trains_path %>

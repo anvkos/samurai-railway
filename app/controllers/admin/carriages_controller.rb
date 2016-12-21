@@ -1,4 +1,4 @@
-class CarriagesController < ApplicationController
+class Admin::CarriagesController < Admin::BaseController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
   before_action :set_train, only: [:new, :create]
 
@@ -17,7 +17,7 @@ class CarriagesController < ApplicationController
     @carriage = @train.carriages.new(carriage_params)
 
     if @carriage.save
-      redirect_to @train, notice: 'Carriage was successfully created.'
+      redirect_to [:admin, @train], notice: 'Carriage was successfully created.'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class CarriagesController < ApplicationController
 
   def update
     if @carriage.update(carriage_params)
-      redirect_to carriage_url(@carriage), notice: 'Carriage was successfully updated.'
+      redirect_to admin_carriage_url(@carriage), notice: 'Carriage was successfully updated.'
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class CarriagesController < ApplicationController
 
   def destroy
     @carriage.destroy
-    redirect_to carriages_url, notice: 'Carriage was successfully destroyed.'
+    redirect_to admin_carriages_url, notice: 'Carriage was successfully destroyed.'
   end
 
   private
