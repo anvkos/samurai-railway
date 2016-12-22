@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Train number:</strong>
-    <%= @ticket.train.number %>
+  <%= @ticket.train.number %>
 </p>
 <p>
   <strong>Start station:</strong>
@@ -17,3 +15,5 @@
   <strong>Passenger:</strong>
   <%= @ticket.passenger_name %>
 </p>
+
+<%= link_to 'Tickets list', tickets_path %>
