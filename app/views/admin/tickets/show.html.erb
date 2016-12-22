@@ -1,4 +1,9 @@
 <p>
+  <strong>User:</strong>
+  <%= @ticket.user.email %>
+</p>
+
+<p>
   <strong>Train number:</strong>
   <%= @ticket.train.number %>
 </p>
@@ -12,9 +17,9 @@
 </p>
 
 <p>
-  <strong>Passenger:</strong>
-  <%= @ticket.passenger_name %>,
-  <%= @ticket.passenger_passport %>
+  <strong>Passenger:</strong><br>
+  name: <%= @ticket.passenger_name %><br>
+  passport: <%= @ticket.passenger_passport %>
 </p>
 
-<%= link_to 'Tickets list', tickets_path %>
+<%= link_to 'Tickets list', admin_tickets_path %>
