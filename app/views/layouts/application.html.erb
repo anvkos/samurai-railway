@@ -12,10 +12,10 @@
     <div class="container">
       <% if user_signed_in? %>
         <p>Hello, <%= current_user.name %>
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+          <%= link_to t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete %>
         </p>
       <% else %>
-        <%= link_to 'Sign in', new_user_session_path %>
+        <%= link_to t('devise.sessions.sign_in'), new_user_session_path %>
       <% end %>
 
       <p id="notice" class="notice"><%= notice %></p>

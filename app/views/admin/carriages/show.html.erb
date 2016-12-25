@@ -10,5 +10,5 @@
   <%= @carriage.train.number %>
 </p>
 
-<%= link_to 'Edit', edit_admin_carriage_path(@carriage) %> |
-<%= link_to 'Back', [:admin, @carriage.train] %>
+<%= link_to t('common.edit'), edit_admin_carriage_path(@carriage) %> |
+<%= link_to t('common.back'), [:admin, @carriage.train] %>
