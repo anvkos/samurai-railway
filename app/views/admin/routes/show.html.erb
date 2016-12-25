@@ -1,57 +1,74 @@
-<p>
-  <strong>Name:</strong>
-  <%= @route.name %>
-</p>
-
-<p>
-  <strong>Stations in the route:</strong>
-  <% if @route.railway_stations.empty? %>
-    At the route no stations
-  <% else %>
-    <table>
-    <thead>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Arrival - Departure</th>
-    </thead>
-    <tbody>
-      <% @route.railway_stations.ordered.each do |station|  %>
-        <tr>
-          <td><%= station.title %></td>
-          <td>
-            <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
-              <%= number_field_tag :position, station.position_in(@route) %>
-              <%= hidden_field_tag :route_id, @route.id %>
-              <%= submit_tag 'edit' %>
-            <% end %>
-          </td>
-          <td>
-            <%= form_tag update_time_admin_railway_station_path(station), method: :patch do %>
-              <%= time_field_tag :arrival, station.time(@route, :arrival) %>
-              <%= time_field_tag :departure, station.time(@route, :departure) %>
-              <%= hidden_field_tag :route_id, @route.id %>
-              <%= submit_tag 'edit' %>
-            <% end %>
-          </td>
-        </tr>
+<div class="row">
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h1>Route</h1>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-10">
+    <p>
+      <strong>Name:</strong>
+      <%= @route.name %>
+    </p>
+    <p>
+      <strong>Stations in the route:</strong>
+      <% if @route.railway_stations.empty? %>
+        At the route no stations
+      <% else %>
+        <table class="table table-striped table-hover">
+        <thead>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Arrival - Departure</th>
+        </thead>
+        <tbody>
+          <% @route.railway_stations.ordered.each do |station|  %>
+            <tr>
+              <td><%= station.title %></td>
+              <td>
+                <%= form_tag  update_position_admin_railway_station_path(station), method: :patch , class: "form-inline" do %>
+                    <%= number_field_tag :position, station.position_in(@route), class: "form-control" %>
+                    <%= hidden_field_tag :route_id, @route.id %>
+                    <%= submit_tag 'edit', class: "btn btn-success" %>
+                <% end %>
+              </td>
+              <td>
+                <%= form_tag update_time_admin_railway_station_path(station), method: :patch, class: "form-inline" do %>
+                  <%= time_field_tag :arrival, station.time(@route, :arrival), class: "form-control" %>
+                  <%= time_field_tag :departure, station.time(@route, :departure), class: "form-control" %>
+                  <%= hidden_field_tag :route_id, @route.id %>
+                  <%= submit_tag 'edit', class: "btn btn-success" %>
+                <% end %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
     <% end %>
-    </tbody>
-  </table>
-<% end %>
-</p>
-
-<p>
-  <strong>Trains route:</strong>
-  <% if @route.trains.empty? %>
-    No trains on the route
-  <% else %>
-    <ul>
-      <% @route.trains.each do |train| %>
-      <li><%= train.number %></li>
+    </p>
+    <p>
+      <strong>Trains route:</strong>
+      <% if @route.trains.empty? %>
+        No trains on the route
+      <% else %>
+        <ul>
+          <% @route.trains.each do |train| %>
+          <li><%= train.number %></li>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
-  <% end %>
-</p>
-
-<%= link_to t('common.edit'), edit_admin_route_path(@route) %> |
-<%= link_to t('common.back'), admin_routes_path %>
+    </p>
+    </div>
+    <div class="col-md-2">
+      <div class="col-md-2">
+      <ul class="list-unstyled">
+        <li>
+          <%= link_to t('common.edit'), edit_admin_route_path(@route), class: "text-success" %>
+        </li>
+        <li>
+          <%= link_to t('common.back'), admin_routes_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>

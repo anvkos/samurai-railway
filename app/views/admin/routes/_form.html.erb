@@ -1,17 +1,21 @@
+<div class="row">
+<div class="col-md-8 col-md-offset-1">
 <%= form_for([:admin, route]) do |f| %>
   <%= render 'common/errors', resource: route %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :railway_station_ids, 'Stations' %>
-    <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
+    <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true, class: "form-control" } %>
   </div>
 
-  <div class="actions">
-    <%= f.submit t('.submit', action: route.new_record? ? t('common.create') : t('common.edit')) %>
+  <div class="actions form-group">
+    <%= f.submit t('.submit', action: route.new_record? ? t('common.create') : t('common.edit')), class: "btn btn-success" %>
   </div>
 <% end %>
+</div>
+</div>

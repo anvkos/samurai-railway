@@ -1,4 +1,11 @@
-<p>
+<div class="row">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Train</h1>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-10">
+  <p>
   <strong>Number:</strong>
   <%= @train.number %>
 </p>
@@ -29,8 +36,20 @@
       <%= render 'carriages', carriages: @train.carriages %>
     <% end %>
     <br>
-  <%= link_to t('admin.carriages.new.title'), new_admin_train_carriage_path(@train) %>
+  <%= link_to t('admin.carriages.new.title'), new_admin_train_carriage_path(@train), class: "btn btn-success" %>
 </p>
-
-<%= link_to t('common.edit'), edit_admin_train_path(@train) %> |
-<%= link_to t('common.back'), admin_trains_path %>
+    </div>
+    <div class="col-md-2">
+      <div class="col-md-2">
+      <ul class="list-unstyled">
+        <li>
+          <%= link_to t('common.edit'), edit_admin_train_path(@train), class: "text-success" %>
+        </li>
+        <li>
+          <%= link_to t('common.back'), admin_trains_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>

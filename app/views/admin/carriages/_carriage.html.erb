@@ -7,7 +7,7 @@
   <td><%= carriage.sitting_seats %></td>
   <td><%= carriage.number %></td>
   <td><%= link_to carriage.train.number,  [:admin, carriage.train] %></td>
-  <td><%= link_to t('common.back'), admin_carriage_path(carriage) %></td>
-  <td><%= link_to t('common.edit'), edit_admin_carriage_path(carriage) %></td>
-  <td><%= link_to t('common.destroy'), admin_carriage_path(carriage), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to t('common.show'), admin_carriage_path(carriage), class: "text-info" %></td>
+  <td><%= link_to t('common.edit'), edit_admin_carriage_path(carriage), class: "text-success" %></td>
+  <td><%= link_to t('common.destroy'), admin_carriage_path(carriage), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
 </tr>
