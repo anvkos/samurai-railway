@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :tickets, except: [:edit, :update]
 
   namespace :admin do
+    resources :dashboards, only: [:index]
     resources :railway_stations do
       patch :update_position, on: :member
       patch :update_time, on: :member
