@@ -4,33 +4,33 @@
   <%= render 'common/errors', resource: carriage %>
 
   <div class="field form-group">
+    <%= f.label :type, t('.type') %>
+    <%= f.select :type, Carriage::TYPES, {}, class: "form-control" %>
+  </div>
+
+  <div class="field form-group" id="field_upper_seats">
     <%= f.label :upper_seats %>
     <%= f.text_field :upper_seats, class: "form-control" %>
   </div>
 
-  <div class="field form-group">
+  <div class="field form-group" id="field_lower_seats">
     <%= f.label :lower_seats %>
     <%= f.text_field :lower_seats, class: "form-control" %>
   </div>
 
-  <div class="field form-group">
+  <div class="field form-group" id="field_side_upper_seats">
     <%= f.label :side_upper_seats %>
     <%= f.text_field :side_upper_seats, class: "form-control" %>
   </div>
 
-  <div class="field form-group">
+  <div class="field form-group" id="field_side_lower_seats">
     <%= f.label :side_lower_seats %>
     <%= f.text_field :side_lower_seats, class: "form-control" %>
   </div>
 
-  <div class="field form-group">
+  <div class="field form-group hidden-field" id="field_sitting_seats">
     <%= f.label :sitting_seats %>
     <%= f.text_field :sitting_seats, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :type, t('.type') %>
-    <%= f.select :type, Carriage::TYPES, {}, class: "form-control" %>
   </div>
 
   <div class="field form-group">
